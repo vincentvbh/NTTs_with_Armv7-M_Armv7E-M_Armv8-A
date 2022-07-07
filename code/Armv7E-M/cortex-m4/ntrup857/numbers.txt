@@ -1,0 +1,12 @@
+\newcommand\polymulntrupeightfivesevenslow{184\,714}
+\newcommand\NTTntrupeightfivesevenslow{48\,629}
+\newcommand\NTTsmallntrupeightfivesevenslow{47\,623}
+\newcommand\basemulntrupeightfivesevenslow{21\,848}
+\newcommand\iNTTntrupeightfivesevenslow{53\,099}
+\newcommand\finalmapntrupeightfivesevenslow{13\,695}
+\newcommand\polymulntrupeightfivesevenfast{189\,523}
+\newcommand\NTTntrupeightfivesevenfast{49\,483}
+\newcommand\NTTsmallntrupeightfivesevenfast{48\,499}
+\newcommand\basemulntrupeightfivesevenfast{22\,336}
+\newcommand\iNTTntrupeightfivesevenfast{55\,720}
+\newcommand\finalmapntrupeightfivesevenfast{13\,743}

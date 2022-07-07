@@ -1,0 +1,12 @@
+\newcommand\polymulntruhpseighttwooneslow{181\,534}
+\newcommand\NTTntruhpseighttwooneslow{48\,629}
+\newcommand\NTTsmallntruhpseighttwooneslow{47\,627}
+\newcommand\basemulntruhpseighttwooneslow{21\,848}
+\newcommand\iNTTntruhpseighttwooneslow{53\,098}
+\newcommand\finalmapntruhpseighttwooneslow{10\,512}
+\newcommand\polymulntruhpseighttwoonefast{186\,197}
+\newcommand\NTTntruhpseighttwoonefast{49\,480}
+\newcommand\NTTsmallntruhpseighttwoonefast{48\,507}
+\newcommand\basemulntruhpseighttwoonefast{22\,349}
+\newcommand\iNTTntruhpseighttwoonefast{55\,569}
+\newcommand\finalmapntruhpseighttwoonefast{10\,564}

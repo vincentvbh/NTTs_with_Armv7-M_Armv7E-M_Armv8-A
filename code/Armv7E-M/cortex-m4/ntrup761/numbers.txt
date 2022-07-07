@@ -1,0 +1,12 @@
+\newcommand\polymulntrupsevensixoneslow{151\,374}
+\newcommand\NTTntrupsevensixoneslow{37\,487}
+\newcommand\NTTsmallntrupsevensixoneslow{36\,573}
+\newcommand\basemulntrupsevensixoneslow{23\,322}
+\newcommand\iNTTntrupsevensixoneslow{41\,435}
+\newcommand\finalmapntrupsevensixoneslow{12\,739}
+\newcommand\polymulntrupsevensixonefast{153\,299}
+\newcommand\NTTntrupsevensixonefast{38\,069}
+\newcommand\NTTsmallntrupsevensixonefast{37\,138}
+\newcommand\basemulntrupsevensixonefast{23\,510}
+\newcommand\iNTTntrupsevensixonefast{42\,001}
+\newcommand\finalmapntrupsevensixonefast{12\,861}

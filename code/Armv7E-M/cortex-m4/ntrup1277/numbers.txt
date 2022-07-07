@@ -1,0 +1,12 @@
+\newcommand\polymulntruponetwosevensevenslow{284\,895}
+\newcommand\NTTntruponetwosevensevenslow{73\,460}
+\newcommand\NTTsmallntruponetwosevensevenslow{72\,592}
+\newcommand\basemulntruponetwosevensevenslow{36\,435}
+\newcommand\iNTTntruponetwosevensevenslow{81\,040}
+\newcommand\finalmapntruponetwosevensevenslow{21\,542}
+\newcommand\polymulntruponetwosevensevenfast{289\,903}
+\newcommand\NTTntruponetwosevensevenfast{75\,315}
+\newcommand\NTTsmallntruponetwosevensevenfast{74\,358}
+\newcommand\basemulntruponetwosevensevenfast{36\,509}
+\newcommand\iNTTntruponetwosevensevenfast{82\,101}
+\newcommand\finalmapntruponetwosevensevenfast{21\,846}

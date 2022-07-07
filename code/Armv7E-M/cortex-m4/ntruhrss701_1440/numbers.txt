@@ -1,0 +1,12 @@
+\newcommand\polymulntruhrsssevenzerooneonefourfourzeroslow{140\,577}
+\newcommand\NTTntruhrsssevenzerooneonefourfourzeroslow{34\,102}
+\newcommand\NTTsmallntruhrsssevenzerooneonefourfourzeroslow{33\,241}
+\newcommand\basemulntruhrsssevenzerooneonefourfourzeroslow{27\,690}
+\newcommand\iNTTntruhrsssevenzerooneonefourfourzeroslow{36\,756}
+\newcommand\finalmapntruhrsssevenzerooneonefourfourzeroslow{8\,968}
+\newcommand\polymulntruhrsssevenzerooneonefourfourzerofast{143\,239}
+\newcommand\NTTntruhrsssevenzerooneonefourfourzerofast{34\,957}
+\newcommand\NTTsmallntruhrsssevenzerooneonefourfourzerofast{34\,087}
+\newcommand\basemulntruhrsssevenzerooneonefourfourzerofast{27\,819}
+\newcommand\iNTTntruhrsssevenzerooneonefourfourzerofast{37\,208}
+\newcommand\finalmapntruhrsssevenzerooneonefourfourzerofast{9\,431}

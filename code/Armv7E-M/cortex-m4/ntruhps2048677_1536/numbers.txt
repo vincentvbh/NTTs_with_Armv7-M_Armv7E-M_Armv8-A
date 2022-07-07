@@ -1,0 +1,12 @@
+\newcommand\polymulntruhpssixsevensevenonefivethreesixslow{147\,126}
+\newcommand\NTTntruhpssixsevensevenonefivethreesixslow{37\,485}
+\newcommand\NTTsmallntruhpssixsevensevenonefivethreesixslow{36\,573}
+\newcommand\basemulntruhpssixsevensevenonefivethreesixslow{23\,322}
+\newcommand\iNTTntruhpssixsevensevenonefivethreesixslow{41\,437}
+\newcommand\finalmapntruhpssixsevensevenonefivethreesixslow{8\,489}
+\newcommand\polymulntruhpssixsevensevenonefivethreesixfast{149\,174}
+\newcommand\NTTntruhpssixsevensevenonefivethreesixfast{38\,076}
+\newcommand\NTTsmallntruhpssixsevensevenonefivethreesixfast{37\,139}
+\newcommand\basemulntruhpssixsevensevenonefivethreesixfast{23\,506}
+\newcommand\iNTTntruhpssixsevensevenonefivethreesixfast{42\,001}
+\newcommand\finalmapntruhpssixsevensevenonefivethreesixfast{8\,717}

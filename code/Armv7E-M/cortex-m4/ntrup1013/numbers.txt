@@ -1,0 +1,12 @@
+\newcommand\polymulntruponezeroonethreeslow{223\,968}
+\newcommand\NTTntruponezeroonethreeslow{57\,430}
+\newcommand\NTTsmallntruponezeroonethreeslow{55\,383}
+\newcommand\basemulntruponezeroonethreeslow{32\,858}
+\newcommand\iNTTntruponezeroonethreeslow{139\,838}
+\newcommand\finalmapntruponezeroonethreeslow{17\,028}
+\newcommand\polymulntruponezeroonethreefast{227\,308}
+\newcommand\NTTntruponezeroonethreefast{58\,406}
+\newcommand\NTTsmallntruponezeroonethreefast{56\,345}
+\newcommand\basemulntruponezeroonethreefast{33\,248}
+\newcommand\iNTTntruponezeroonethreefast{141\,911}
+\newcommand\finalmapntruponezeroonethreefast{17\,156}
