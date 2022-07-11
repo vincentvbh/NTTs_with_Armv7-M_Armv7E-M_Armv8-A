@@ -16,6 +16,11 @@ This thesis collects two published works and one submitted work during the study
 - A work about NTRU and NTRU Prime on Cortex-M4 will be added shortly.
 
 
+# Errata
+- Page 3: "Single-Instruction-Multiple-Data" instead of "Simple-Instruction-Multiple-Data".
+- Table 2.3: the $q$ of $\texttt{ntruhrss1373}$ is $16384$.
+- Page 89: $\min(v_2(q_0), v_3(q_1))$ instead of $\gcd(v_2(q_0), v_3(q_1))$.
+
 # Structure of this repository
 This repository is structured as follows.
 - `common`:
