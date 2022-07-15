@@ -9,23 +9,24 @@ import serial
 import numpy as np
 from config import Settings
 
-testType = "testvectors"
+testType = "test"
 iterations = 1
-ntests = 2
+ntests = 10
 schemeList = ["lightsaber", "saber", "firesaber"]
-impleList = ["speed", "speedstack", "stack", "ref"]
-cpu = "m3"
+impleList = ["speed", "stack", "ref"]
+cpu = "m4f"
 
 
 def getBinary(scheme, impl):
-    return f"elf/crypto_kem_{scheme}_{impl}_{testType}.elf"
+    return f"bin/crypto_kem_{scheme}_{impl}_{testType}.bin"
 
 def getFlash(binary):
-    return f"openocd -f nucleo-f2.cfg -c \"program {binary} reset exit\" "
+    return f"st-flash write {binary} 0x8000000"
 
 def makeAll():
     subprocess.check_call(f"make clean", shell=True)
     subprocess.check_call(f"make -j8 ITERATIONS={iterations}", shell=True)
+
 
 def test(scheme, impl):
     binary = getBinary(scheme, impl)
@@ -33,8 +34,6 @@ def test(scheme, impl):
     if exists(binary) == 0:
         print(f"skip {binary}")
         return 0
-
-    outfile = open(f"testvectors_{scheme}_{imple}.txt", "w+")
 
     try:
         subprocess.check_call(getFlash(binary), shell=True)
@@ -56,20 +55,14 @@ def test(scheme, impl):
             if device_output == b'#':
                 break
 
-    
     log = log.decode(errors="ignore")
-    log = log.replace("=\n", "")
-    log = log.replace('=', '')
-    outfile.write(log)
-    outfile.flush()
-    outfile.close()
+    assert log.count("ERROR") == 0 and log.count("OK") == ntests
+
 
 makeAll()
 
 for scheme in schemeList:
     for imple in impleList:
         test(scheme, cpu + imple)
-
-
 
 

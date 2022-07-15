@@ -13,15 +13,15 @@ testType = "testvectors"
 iterations = 1
 ntests = 2
 schemeList = ["lightsaber", "saber", "firesaber"]
-impleList = ["speed", "speedstack", "stack", "ref"]
-cpu = "m3"
+impleList = ["speed", "stack", "ref"]
+cpu = "m4f"
 
 
 def getBinary(scheme, impl):
-    return f"elf/crypto_kem_{scheme}_{impl}_{testType}.elf"
+    return f"bin/crypto_kem_{scheme}_{impl}_{testType}.bin"
 
 def getFlash(binary):
-    return f"openocd -f nucleo-f2.cfg -c \"program {binary} reset exit\" "
+    return f"st-flash write {binary} 0x8000000"
 
 def makeAll():
     subprocess.check_call(f"make clean", shell=True)

@@ -1,9 +1,10 @@
+
+
 #include <stdint.h>
 #include "randombytes.h"
 
-//TODO Maybe we do not want to use the hardware RNG for all randomness, but instead only read a seed and then expand that using fips202.
-
 #if defined(STM32) && !defined(NO_RANDOMBYTES)
+
 #include <libopencm3/stm32/rng.h>
 
 int randombytes_trng(uint8_t *obuf, size_t len)
@@ -35,7 +36,11 @@ int randombytes_trng(uint8_t *obuf, size_t len)
 }
 
 int randombytes(uint8_t *obuf, size_t len) __attribute__ ((weak, alias ("randombytes_trng")));
+
 #else
+
+#warning Using a non-random randombytes
+
 #include <string.h>
 
 static uint32_t seed[32] = { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3,

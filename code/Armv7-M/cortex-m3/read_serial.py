@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import platform
 import serial
 import sys

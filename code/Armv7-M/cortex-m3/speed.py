@@ -3,6 +3,7 @@
 import datetime
 import subprocess
 import sys
+from os.path import exists
 
 import serial
 import numpy as np
@@ -35,6 +36,10 @@ def getFlash(binary):
 
 def run_bench(scheme, impl):
     binary = getBinary(scheme, impl)
+
+    if exists(binary) == 0:
+        print(f"skip {binary}")
+        return 0
 
     try:
         subprocess.check_call(getFlash(binary), shell=True)
