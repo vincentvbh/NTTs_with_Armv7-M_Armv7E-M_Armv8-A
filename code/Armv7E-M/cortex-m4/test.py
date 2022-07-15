@@ -12,8 +12,8 @@ from config import Settings
 testType = "test"
 iterations = 1
 ntests = 10
-schemeList = ["lightsaber", "saber", "firesaber"]
-impleList = ["speed", "stack", "ref"]
+schemeList = ["lightsaber", "saber", "firesaber", "ntruhps2048677", "ntruhrss701", "ntruhps4096821"]
+impleList = ["", "speed", "stack", "_1440", "_1536", "ref"]
 cpu = "m4f"
 
 
