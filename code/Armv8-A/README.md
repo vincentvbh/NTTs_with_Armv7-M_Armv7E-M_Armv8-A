@@ -1,3 +1,3 @@
 
-The implementations will be integrated in the future.
+Please refer to the folder `cortex-a72`.
 

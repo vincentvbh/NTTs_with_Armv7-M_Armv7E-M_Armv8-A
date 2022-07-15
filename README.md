@@ -26,7 +26,7 @@ This repository is structured as follows.
 - `common`:
     This folder contains the C functions used during the development of the assembly programs. The functions are designed to support user-defined coefficient rings. For documentation, please refer to the Appendix B **Toolkit for Development** in the thesis.
 - `code`:
-    This folder contains the implementations. Currently, implementations in `Armv7-M` and `Armv7E-M` are included. The `Armv8-A` implementations can be found at https://github.com/neon-ntt/neon-ntt and will be integrated into this repository shortly.
+    This folder contains the implementations. Please refer to the folders `Armv7-M`, `Armv7E-M`, and `Armv8-A`.
 - `bound`:
     This folder contains the output bounds of each assembly subroutines. Currently, bounds for `Armv7-M` and `Armv7E-M` implementations are given.
     The bounds of `Armv8-A` is left as future work. It is expected that implementations in `Armv8-A` will be improved in the future, and with high probability, only bounds for the improved programs will be given.
@@ -41,7 +41,7 @@ This repository is structured as follows.
 - `code/Armv7-M/cortex-m3` constains the implementations of Saber on Cortex-M3. This corresponds to the following sections in the thesis:
     - Section 8.5 **Cortex-M3:Saber**
     - Section 9.2 **Cortex-M3 Results**
-- The implementations of Dilithium, Kyber, and Saber on Cortex-A72 will be added to the folder `./code/Armv8-A/cortex-a72`. This corresponds to the following sections in the thesis:
+- `code/Armv8-A/cortex-a72` contains the implementations of Dilithium, Kyber, and Saber on Cortex-A72. This corresponds to the following sections in the thesis:
     - Section 8.6 **Cortex-A72:Dilithium, Kyber, and Saber**
     - Section 9.3 **Cortex-A72 Results**
 

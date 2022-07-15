@@ -1,9 +1,6 @@
 [submodule "code/libopencm3"]
 	path = code/libopencm3
 	url = git@github.com:libopencm3/libopencm3.git
-[submodule "code/Armv7-M/cortex-m3/pqm3"]
-	path = code/Armv7-M/cortex-m3/pqm3
-	url = git@github.com:mupq/pqm3.git
 [submodule "code/Armv7E-M/cortex-m4/pqm4"]
 	path = code/Armv7E-M/cortex-m4/pqm4
 	url = git@github.com:mupq/pqm4.git

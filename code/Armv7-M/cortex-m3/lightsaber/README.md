@@ -1,4 +1,12 @@
 
+# Produced binaries
+- `NTT_test.elf`
+- `NTT_speed.elf`
+- `MatrixVectorMul_test.elf`
+- `MatrixVectorMul_speed.elf`
+- `InnerProd_test.elf`
+- `InnerProd_speed.elf`
+
 # NTT
 
 ## 30 MHz
