@@ -1,13 +1,16 @@
 
+# IMPLEMENTATION_PATH = \
+# 	crypto_kem/ntruhps2048677/m4fref \
+# 	crypto_kem/ntruhps2048677/m4f_1440 \
+# 	crypto_kem/ntruhps2048677/m4f_1536 \
+# 	crypto_kem/ntruhrss701/m4fref \
+# 	crypto_kem/ntruhrss701/m4f_1440 \
+# 	crypto_kem/ntruhrss701/m4f_1536 \
+# 	crypto_kem/ntruhps4096821/m4fref \
+# 	crypto_kem/ntruhps4096821/m4f
+
 IMPLEMENTATION_PATH = \
-	crypto_kem/ntruhps2048677/m4fref \
-	crypto_kem/ntruhps2048677/m4f_1440 \
-	crypto_kem/ntruhps2048677/m4f_1536 \
-	crypto_kem/ntruhrss701/m4fref \
-	crypto_kem/ntruhrss701/m4f_1440 \
-	crypto_kem/ntruhrss701/m4f_1536 \
-	crypto_kem/ntruhps4096821/m4fref \
-	crypto_kem/ntruhps4096821/m4f
+	crypto_kem/sntrup653/m4f
 
 
 # IMPLEMENTATION_PATH = \
@@ -54,7 +57,7 @@ obj/lib$(2).a: $(call objs,$(call schemesrc,$(1)))
 libs: obj/lib$(2).a
 elf/$(2)_%.elf: CPPFLAGS+=-I$(1)
 elf/$(2)_%.elf: MUPQ_NAMESPACE=$(call namespace,$(2),$(3))
-elf/$(2)_hashing.elf: PROFILE_HASHING=1
+elf/$(2)_profile.elf: PROFILE=1
 elf/$(2)_testvectors.elf: NO_RANDOMBYTES=1
 
 # The {test,stack,speed,...}.c file is compiled directly into the elf file,
@@ -76,9 +79,9 @@ elf/$(2)_%.elf: crypto_$(3)/%.c obj/lib$(2).a $$(LINKDEPS) $$(CONFIG)
 endif
 
 # Add the elf,bin and hex files to the tests target.
-tests: elf/$(2)_test.elf elf/$(2)_speed.elf elf/$(2)_stack.elf elf/$(2)_testvectors.elf
-tests-bin: bin/$(2)_test.bin bin/$(2)_speed.bin bin/$(2)_stack.bin bin/$(2)_testvectors.bin
-tests-hex: bin/$(2)_test.hex bin/$(2)_speed.hex bin/$(2)_stack.hex bin/$(2)_testvectors.hex
+tests: elf/$(2)_test.elf elf/$(2)_speed.elf elf/$(2)_stack.elf elf/$(2)_testvectors.elf elf/$(2)_profile.elf
+tests-bin: bin/$(2)_test.bin bin/$(2)_speed.bin bin/$(2)_stack.bin bin/$(2)_testvectors.bin bin/$(2)_profile.bin
+tests-hex: bin/$(2)_test.hex bin/$(2)_speed.hex bin/$(2)_stack.hex bin/$(2)_testvectors.hex bin/$(2)_profile.hex
 
 # For each scheme a Makefile with special scheme-specific options can be placed
 # under <schemefolder>/config.mk and mk/<schemename>.mk. If such a file does not

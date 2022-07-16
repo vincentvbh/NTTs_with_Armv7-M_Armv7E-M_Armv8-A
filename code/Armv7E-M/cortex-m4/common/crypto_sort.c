@@ -7,6 +7,11 @@
 #include <stdint.h>
 #include "crypto_sort.h"
 
+#ifdef PROFILE_SORTING
+#include "hal.h"
+extern unsigned long long sort_cycles;
+#endif
+
 #define int32_MINMAX(a,b) \
 do { \
   int32_t temp1; \
@@ -176,7 +181,7 @@ static void crypto_sort_smallindices(int32_t *x,int32_t n)
   }
 }
 
-void crypto_sort(void *array,long long n)
+static void crypto_sort_core(void *array,long long n)
 {
   long long top,p,q,r,i,j;
   int32_t *x = array;
@@ -236,4 +241,21 @@ void crypto_sort(void *array,long long n)
       done: ;
     }
   }
+
 }
+
+void crypto_sort(void *array,long long n){
+#ifdef PROFILE_SORTING
+  unsigned long long t0 = hal_get_time();
+#endif
+  crypto_sort_core(array, n);
+#ifdef PROFILE_SORTING
+  unsigned long long t1 = hal_get_time();
+  sort_cycles += (t1 - t0);
+#endif
+}
+
+
+
+
+

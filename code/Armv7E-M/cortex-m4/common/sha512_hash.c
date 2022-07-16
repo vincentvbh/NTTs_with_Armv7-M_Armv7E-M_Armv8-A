@@ -8,6 +8,11 @@ Public domain.
 
 #include "sha512_hash.h"
 
+#ifdef PROFILE_HASHING
+#include "hal.h"
+extern unsigned long long hash_cycles;
+#endif
+
 #define inner crypto_hashblocks_sha512_m4mult_inner
 #define blocks sha512_hashblocks
 
@@ -122,6 +127,9 @@ static const unsigned char iv[64] = {
 
 int sha512_hash(unsigned char *out,const unsigned char *in, uint64_t inlen)
 {
+#ifdef PROFILE_HASHING
+  unsigned long long t0 = hal_get_time();
+#endif
   unsigned char h[64];
   unsigned char padded[256];
   unsigned int i;
@@ -163,6 +171,11 @@ int sha512_hash(unsigned char *out,const unsigned char *in, uint64_t inlen)
   }
 
   for (i = 0;i < 64;++i) out[i] = h[i];
+
+#ifdef PROFILE_HASHING
+  unsigned long long t1 = hal_get_time();
+  hash_cycles += (t1 - t0);
+#endif
 
   return 0;
 }
