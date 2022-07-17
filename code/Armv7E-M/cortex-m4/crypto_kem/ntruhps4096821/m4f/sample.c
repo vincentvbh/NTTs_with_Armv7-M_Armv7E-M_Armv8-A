@@ -44,7 +44,7 @@ void sample_fixed_type(poly *r, const unsigned char u[NTRU_SAMPLE_FT_BYTES]) {
         s[i] |=  2;
     }
 
-    crypto_sort(s, NTRU_N - 1);
+    crypto_sort_int32(s, NTRU_N - 1);
 
     for (i = 0; i < NTRU_N - 1; i++) {
         r->coeffs[i] = ((uint16_t) (s[i] & 3));

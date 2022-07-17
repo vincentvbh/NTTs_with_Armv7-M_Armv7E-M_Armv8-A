@@ -5,7 +5,7 @@
 #include "poly.h"
 
 #ifdef NTRU_HPS
-#include "crypto_sort_int32.h"
+#include "crypto_sort.h"
 #endif
 
 #define sample_fg CRYPTO_NAMESPACE(sample_fg)

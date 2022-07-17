@@ -3,6 +3,11 @@ COMMON_SRC = \
 	common/keccakf1600.S \
 	common/sha512_hash.c \
 	common/sha512_inner32.s \
+	common/aes-encrypt.S \
+	common/aes-keyschedule.S \
+	common/aes-publicinputs.c \
+	common/aes-publicinputs.S \
+	common/aes.c \
 	common/crypto_sort.c \
 	common/sort_asm.S
 

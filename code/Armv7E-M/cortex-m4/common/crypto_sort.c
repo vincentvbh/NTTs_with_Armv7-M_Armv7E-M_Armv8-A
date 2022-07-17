@@ -30,7 +30,7 @@ do { \
 extern void __asm_minmax(int32_t*, int32_t*, int32_t);
 extern void __asm_minmax_quadjump(int32_t*, int32_t, int32_t);
 /* assume 2 <= n <= 0x40000000 */
-static void crypto_sort_smallindices(int32_t *x,int32_t n)
+static void crypto_sort_int32_smallindices(int32_t *x,int32_t n)
 {
   int32_t top,p,q,r,i,j;
 
@@ -181,14 +181,14 @@ static void crypto_sort_smallindices(int32_t *x,int32_t n)
   }
 }
 
-static void crypto_sort_core(void *array,long long n)
+static void crypto_sort_int32_core(void *array,long long n)
 {
   long long top,p,q,r,i,j;
   int32_t *x = array;
 
   if (n < 2) return;
   if (n < 0x40000000) {
-    crypto_sort_smallindices(x,n);
+    crypto_sort_int32_smallindices(x,n);
     return;
   }
   top = 1;
@@ -244,16 +244,40 @@ static void crypto_sort_core(void *array,long long n)
 
 }
 
-void crypto_sort(void *array,long long n){
+void crypto_sort_int32(void *array,long long n){
 #ifdef PROFILE_SORTING
   unsigned long long t0 = hal_get_time();
 #endif
-  crypto_sort_core(array, n);
+  crypto_sort_int32_core(array, n);
 #ifdef PROFILE_SORTING
   unsigned long long t1 = hal_get_time();
   sort_cycles += (t1 - t0);
 #endif
 }
+
+/* can save time by vectorizing xor loops */
+/* can save time by integrating xor loops with int32_sort */
+
+void crypto_sort_uint32(void *array,long long n)
+{
+#ifdef PROFILE_SORTING
+  unsigned long long t0 = hal_get_time();
+#endif
+  uint32_t *x = array;
+  long long j;
+  for (j = 0;j < n;++j) x[j] ^= 0x80000000;
+  crypto_sort_int32_core(array,n);
+  for (j = 0;j < n;++j) x[j] ^= 0x80000000;
+#ifdef PROFILE_SORTING
+  unsigned long long t1 = hal_get_time();
+  sort_cycles += (t1 - t0);
+#endif
+}
+
+
+
+
+
 
 
 

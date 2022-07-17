@@ -1,28 +1,42 @@
 
-# IMPLEMENTATION_PATH = \
-# 	crypto_kem/ntruhps2048677/m4fref \
-# 	crypto_kem/ntruhps2048677/m4f_1440 \
-# 	crypto_kem/ntruhps2048677/m4f_1536 \
-# 	crypto_kem/ntruhrss701/m4fref \
-# 	crypto_kem/ntruhrss701/m4f_1440 \
-# 	crypto_kem/ntruhrss701/m4f_1536 \
-# 	crypto_kem/ntruhps4096821/m4fref \
-# 	crypto_kem/ntruhps4096821/m4f
-
 IMPLEMENTATION_PATH = \
-	crypto_kem/sntrup653/m4f
-
-
-# IMPLEMENTATION_PATH = \
-# 	crypto_kem/lightsaber/m4fref \
-# 	crypto_kem/lightsaber/m4fspeed \
-# 	crypto_kem/lightsaber/m4fstack \
-# 	crypto_kem/saber/m4fref \
-# 	crypto_kem/saber/m4fspeed \
-# 	crypto_kem/saber/m4fstack \
-# 	crypto_kem/firesaber/m4fref \
-# 	crypto_kem/firesaber/m4fspeed \
-# 	crypto_kem/firesaber/m4fstack
+	crypto_kem/ntruhps2048677/m4fref \
+	crypto_kem/ntruhps2048677/m4f_1440 \
+	crypto_kem/ntruhps2048677/m4f_1536 \
+	crypto_kem/ntruhrss701/m4fref \
+	crypto_kem/ntruhrss701/m4f_1440 \
+	crypto_kem/ntruhrss701/m4f_1536 \
+	crypto_kem/ntruhps4096821/m4fref \
+	crypto_kem/ntruhps4096821/m4f \
+	crypto_kem/lightsaber/m4fref \
+	crypto_kem/lightsaber/m4fspeed \
+	crypto_kem/lightsaber/m4fstack \
+	crypto_kem/saber/m4fref \
+	crypto_kem/saber/m4fspeed \
+	crypto_kem/saber/m4fstack \
+	crypto_kem/firesaber/m4fref \
+	crypto_kem/firesaber/m4fspeed \
+	crypto_kem/firesaber/m4fstack \
+	crypto_kem/ntrulpr653/m4f \
+	crypto_kem/ntrulpr653/m4fref \
+	crypto_kem/ntrulpr761/m4f \
+	crypto_kem/ntrulpr761/m4fref \
+	crypto_kem/ntrulpr857/m4f \
+	crypto_kem/ntrulpr857/m4fref \
+	crypto_kem/ntrulpr1013/m4f \
+	crypto_kem/ntrulpr1013/m4fref \
+	crypto_kem/ntrulpr1277/m4f \
+	crypto_kem/ntrulpr1277/m4fref \
+	crypto_kem/sntrup653/m4f \
+	crypto_kem/sntrup653/m4fref \
+	crypto_kem/sntrup761/m4f \
+	crypto_kem/sntrup761/m4fref \
+	crypto_kem/sntrup857/m4f \
+	crypto_kem/sntrup857/m4fref \
+	crypto_kem/sntrup1013/m4f \
+	crypto_kem/sntrup1013/m4fref \
+	crypto_kem/sntrup1277/m4f \
+	crypto_kem/sntrup1277/m4fref
 
 # If, however, the IMPLEMENTAION_PATH is defined, only the path it points to
 # will be added to the {KEM,SIGN}_SCHEMES lists. Since the python scripts for

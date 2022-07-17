@@ -115,7 +115,7 @@ Short_fromlist_asm_zero:
   mov.w r0, sp
   mov.w r2, #653
   mov.w r3, #0
-  bl.w uint32_sort
+  bl.w crypto_sort_uint32
   vmov.w r4, s0
   mov.w r0, sp
   mov.w r1, #0x01010101
