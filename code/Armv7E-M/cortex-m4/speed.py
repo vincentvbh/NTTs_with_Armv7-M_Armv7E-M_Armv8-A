@@ -11,7 +11,7 @@ from config import Settings
 
 benchType = "speed"
 outFileName = "speed.txt"
-iterations = 100
+iterations = 10
 testedList = [["keygen", "keypair cycles:"],
               ["encaps", "encaps cycles:"],
               ["decaps", "decaps cycles:"]
@@ -19,12 +19,12 @@ testedList = [["keygen", "keypair cycles:"],
 schemeList = ["ntrulpr653", "ntrulpr761", "ntrulpr857", "ntrulpr1013", "ntrulpr1277",
               "sntrup653", "sntrup761", "sntrup857", "sntrup1013", "sntrup1277",
               "lightsaber", "saber", "firesaber", "ntruhps2048677", "ntruhrss701", "ntruhps4096821"]
-impleList = ["", "speed", "stack", "_1440", "_1536", "ref"]
+impleList = ["", "speed", "stack", "_1440", "_1536"]
 cpu = "m4f"
 
 
 def toLog(name, value, k=None):
-  if value > 20000:
+  if value > 10000:
     value = f"{round(value/1000)}k"
   else:
     value = f"{value}"
@@ -41,7 +41,7 @@ def run_bench(scheme, impl):
 
     if exists(binary) == 0:
         print(f"skip {binary}")
-        return 0
+        return ""
 
     try:
         subprocess.check_call(getFlash(binary), shell=True)
@@ -102,6 +102,10 @@ def average(results):
 
 def bench(scheme, texName, impl, outfile, ignoreErrors=False):
     logs    = run_bench(scheme, impl)
+
+    if logs == "":
+        return 0
+
     results = []
     for log in logs:
         try:

@@ -14,15 +14,15 @@ COMMON_SRC = \
 
 obj/libcommon.a: $(call objs,$(COMMON_SRC))
 
-obj/libcommon-prof.a: CPPFLAGS += -DPROFILE_HASHING -DPROFILE_SORTING
-obj/libcommon-prof.a: $(call hashprofobjs,$(COMMON_SRC))
+obj/libcommon-prof.a: CPPFLAGS += -DPROFILE_HASHING -DPROFILE_SORTING -DPROFILE_RAND
+obj/libcommon-prof.a: $(call objs,$(COMMON_SRC))
 
 ifeq ($(AIO),1)
 LDLIBS +=
 LIBDEPS += $(COMMON_SRC)
-CPPFLAGS+=$(if $(PROFILE), -DPROFILE_HASHING -DPROFILE_SORTING)
+CPPFLAGS += $(if $(PROFILE), -DPROFILE_HASHING -DPROFILE_SORTING -DPROFILE_RAND)
 else
-LDLIBS += -lcommon$(if $(PROFILE),-prof)
-LIBDEPS += obj/libcommon$$(if $$(PROFILE),-prof).a
+LDLIBS += -lcommon$(if $(PROFILE), -prof)
+LIBDEPS += obj/libcommon$$(if $$(PROFILE), -prof).a
 endif
 

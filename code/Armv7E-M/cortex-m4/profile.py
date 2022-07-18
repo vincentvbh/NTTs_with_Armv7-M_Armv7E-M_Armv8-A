@@ -9,12 +9,18 @@ import serial
 import numpy as np
 from config import Settings
 
-benchType = "stack"
-outFileName = "stack.txt"
-iterations = 1
-testedList = [["keygen", "keypair stack usage:"],
-              ["encaps", "encaps stack usage:"],
-              ["decaps", "decaps stack usage:"]
+benchType = "profile"
+outFileName = "profile.txt"
+iterations = 10
+testedList = [["keygen hash", "keypair hash cycles:"],
+              ["keygen rand", "keypair rand cycles:"],
+              ["keygen sort", "keypair sort cycles:"],
+              ["encaps hash", "encaps hash cycles:"],
+              ["encaps rand", "encaps rand cycles:"],
+              ["encaps sort", "encaps sort cycles:"],
+              ["decaps hash", "decaps hash cycles:"],
+              ["decaps rand", "decaps rand cycles:"],
+              ["decaps sort", "decaps sort cycles:"]
              ]
 schemeList = ["ntrulpr653", "ntrulpr761", "ntrulpr857", "ntrulpr1013", "ntrulpr1277",
               "sntrup653", "sntrup761", "sntrup857", "sntrup1013", "sntrup1277",
@@ -24,6 +30,10 @@ cpu = "m4f"
 
 
 def toLog(name, value, k=None):
+  if value > 10000:
+    value = f"{round(value/1000)}k"
+  else:
+    value = f"{value}"
   return f"{name}: {value}\n"
 
 def getBinary(scheme, impl):

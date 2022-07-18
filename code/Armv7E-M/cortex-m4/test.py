@@ -35,7 +35,7 @@ def test(scheme, impl):
 
     if exists(binary) == 0:
         print(f"skip {binary}")
-        return 0
+        return ""
 
     try:
         subprocess.check_call(getFlash(binary), shell=True)

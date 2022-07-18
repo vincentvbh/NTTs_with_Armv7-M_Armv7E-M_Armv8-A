@@ -5,10 +5,6 @@
 #include <stdint.h>
 #include <string.h>
 
-extern void __asm_poly_add(uint16_t*, uint16_t*, uint16_t*);
-
-#define MAX(a,b) (((a)>(b))?(a):(b))
-
 #define printcycles(S, U) send_unsignedll((S), (U))
 
 int main(void)

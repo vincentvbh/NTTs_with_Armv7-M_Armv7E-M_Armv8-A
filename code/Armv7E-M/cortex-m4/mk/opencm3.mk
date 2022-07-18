@@ -2,14 +2,17 @@ LIBHAL_SRC := \
 	common/hal-opencm3.c \
 	common/randombytes.c
 
+obj/libpqm4hal.a: CPPFLAGS += $(if $(PROFILE), -DPROFILE_RAND)
 obj/libpqm4hal.a: $(call objs,$(LIBHAL_SRC))
-obj/libpqm4hal-nornd.a: CPPFLAGS+= -DNO_RANDOMBYTES
+obj/libpqm4hal-nornd.a: CPPFLAGS += $(if $(PROFILE), -DPROFILE_RAND)
+obj/libpqm4hal-nornd.a: CPPFLAGS += -DNO_RANDOMBYTES
 obj/libpqm4hal-nornd.a: $(call objs,$(LIBHAL_SRC))
 
 ifeq ($(AIO),1)
 LDLIBS +=
 LIBDEPS += $(LIBHAL_SRC)
 CPPFLAGS += $(if $(NO_RANDOMBYTES), -DNO_RANDOMBYTES)
+CPPFLAGS += $(if $(PROFILE), -DPROFILE_RAND)
 else
 LDLIBS += -lpqm4hal
 LIBDEPS += obj/libpqm4hal$$(if $$(NO_RANDOMBYTES),-nornd).a

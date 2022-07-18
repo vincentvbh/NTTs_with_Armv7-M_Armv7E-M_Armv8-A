@@ -1,11 +1,19 @@
 #include "randombytes.h"
 
+#ifdef PROFILE_RAND
+#include "hal.h"
+extern unsigned long long rand_cycles;
+#endif
+
 #if (defined(STM32F2) || defined(STM32F4) || defined(STM32L4R5ZI) && !defined(MPS2_AN386)) && !defined(NO_RANDOMBYTES)
 
 #include <libopencm3/stm32/rng.h>
 
 int randombytes(uint8_t *obuf, size_t len)
 {
+#ifdef PROFILE_RAND
+  unsigned long long t0 = hal_get_time();
+#endif
     union
     {
         unsigned char aschar[4];
@@ -28,6 +36,11 @@ int randombytes(uint8_t *obuf, size_t len)
             *obuf++ = random.aschar[len - 1];
         }
     }
+
+#ifdef PROFILE_RAND
+  unsigned long long t1 = hal_get_time();
+  rand_cycles += (t1 - t0);
+#endif
 
     return 0;
 }
@@ -112,6 +125,9 @@ void randombytes_regen(void)
 
 int randombytes(uint8_t* buf, size_t xlen)
 {
+#ifdef PROFILE_RAND
+  unsigned long long t0 = hal_get_time();
+#endif
   while (xlen > 0) {
     if (!outleft) {
       randombytes_regen();
@@ -120,6 +136,10 @@ int randombytes(uint8_t* buf, size_t xlen)
     ++buf;
     --xlen;
   }
+#ifdef PROFILE_RAND
+  unsigned long long t1 = hal_get_time();
+  rand_cycles += (t1 - t0);
+#endif
   return 0;
 }
 

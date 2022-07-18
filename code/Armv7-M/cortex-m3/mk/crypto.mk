@@ -1,18 +1,18 @@
-SYMCRYPTO_SRC = \
+COMMON_SRC = \
 	common/fips202.c \
 	common/keccakf1600.S
 
 
-obj/libsymcrypto.a: $(call objs,$(SYMCRYPTO_SRC))
+obj/libcommon.a: $(call objs,$(COMMON_SRC))
 
-obj/libsymcrypto-hashprof.a: CPPFLAGS+=-DPROFILE_HASHING
-obj/libsymcrypto-hashprof.a: $(call hashprofobjs,$(SYMCRYPTO_SRC))
+obj/libcommon-prof.a:  CPPFLAGS += -DPROFILE_HASHING -DPROFILE_SORTING -DPROFILE_RAND
+obj/libcommon-prof.a: $(call objs,$(COMMON_SRC))
 
 ifeq ($(AIO),1)
 LDLIBS +=
-LIBDEPS += $(SYMCRYPTO_SRC)
-CPPFLAGS+=$(if $(PROFILE_HASHING),-DPROFILE_HASHING)
+LIBDEPS += $(COMMON_SRC)
+CPPFLAGS += $(if $(PROFILE),  -DPROFILE_HASHING -DPROFILE_SORTING -DPROFILE_RAND)
 else
-LDLIBS += -lsymcrypto$(if $(PROFILE_HASHING),-hashprof)
-LIBDEPS += obj/libsymcrypto$$(if $$(PROFILE_HASHING),-hashprof).a
+LDLIBS += -lcommon$(if $(PROFILE), -prof)
+LIBDEPS += obj/libcommon$$(if $$(PROFILE), -prof).a
 endif

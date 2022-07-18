@@ -9,35 +9,43 @@ import serial
 import numpy as np
 from config import Settings
 
-benchType = "stack"
-outFileName = "stack.txt"
-iterations = 1
-testedList = [["keygen", "keypair stack usage:"],
-              ["encaps", "encaps stack usage:"],
-              ["decaps", "decaps stack usage:"]
+benchType = "profile"
+outFileName = "profile.txt"
+iterations = 100
+testedList = [["keygen hash", "keypair hash cycles:"],
+              ["keygen rand", "keypair rand cycles:"],
+              ["keygen sort", "keypair sort cycles:"],
+              ["encaps hash", "encaps hash cycles:"],
+              ["encaps rand", "encaps rand cycles:"],
+              ["encaps sort", "encaps sort cycles:"],
+              ["decaps hash", "decaps hash cycles:"],
+              ["decaps rand", "decaps rand cycles:"],
+              ["decaps sort", "decaps sort cycles:"]
              ]
-schemeList = ["ntrulpr653", "ntrulpr761", "ntrulpr857", "ntrulpr1013", "ntrulpr1277",
-              "sntrup653", "sntrup761", "sntrup857", "sntrup1013", "sntrup1277",
-              "lightsaber", "saber", "firesaber", "ntruhps2048677", "ntruhrss701", "ntruhps4096821"]
-impleList = ["", "speed", "stack", "_1440", "_1536"]
-cpu = "m4f"
+schemeList = ["lightsaber", "saber", "firesaber"]
+impleList = ["speed", "speedstack", "stack", "ref"]
+cpu = "m3"
 
 
 def toLog(name, value, k=None):
+  if value > 10000:
+    value = f"{round(value/1000)}k"
+  else:
+    value = f"{value}"
   return f"{name}: {value}\n"
 
 def getBinary(scheme, impl):
-    return f"bin/crypto_kem_{scheme}_{impl}_{benchType}.bin"
+    return f"elf/crypto_kem_{scheme}_{impl}_{benchType}.elf"
 
 def getFlash(binary):
-    return f"st-flash write {binary} 0x8000000"
+    return f"openocd -f nucleo-f2.cfg -c \"program {binary} reset exit\" "
 
 def run_bench(scheme, impl):
     binary = getBinary(scheme, impl)
 
     if exists(binary) == 0:
         print(f"skip {binary}")
-        return ""
+        return 0
 
     try:
         subprocess.check_call(getFlash(binary), shell=True)
@@ -98,10 +106,6 @@ def average(results):
 
 def bench(scheme, texName, impl, outfile, ignoreErrors=False):
     logs    = run_bench(scheme, impl)
-
-    if logs == "":
-        return 0
-
     results = []
     for log in logs:
         try:
@@ -135,6 +139,5 @@ with open(outFileName, "w") as outfile:
     for scheme in schemeList:
         for imple in impleList:
             bench(scheme, scheme + cpu + imple, cpu + imple, outfile)
-
 
 
