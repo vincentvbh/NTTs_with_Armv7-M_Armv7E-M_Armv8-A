@@ -13,7 +13,8 @@ This thesis collects two published works and one submitted work during the study
 - **Neon NTT: Faster Dilithium, Kyber, and Saber on Cortex-A72 and Apple M1**.
     - Available at https://tches.iacr.org/index.php/TCHES/article/view/9295.
     - Full version available at https://eprint.iacr.org/2021/986.
-- A work about NTRU and NTRU Prime on Cortex-M4 will be added shortly.
+- **Multi-Parameter Support with NTTs for NTRU and NTRU Prime on Cortex-M4**
+    - To appear at TCHES 2022.
 
 
 # Errata
