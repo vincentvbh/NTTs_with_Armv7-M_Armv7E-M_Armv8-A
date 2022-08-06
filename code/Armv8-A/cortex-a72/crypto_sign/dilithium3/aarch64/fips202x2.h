@@ -1,6 +1,8 @@
 #ifndef FIPS202X2_H
 #define FIPS202X2_H
 
+// modified from https://github.com/cothan/kyber/blob/master/neon/fips202x2.h
+
 #include <stddef.h>
 #include <arm_neon.h>
 

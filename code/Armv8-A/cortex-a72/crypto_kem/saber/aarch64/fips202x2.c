@@ -1,3 +1,5 @@
+// modified from https://github.com/cothan/kyber/blob/master/neon/fips202x2.c
+
 #include <arm_neon.h>
 #include <stddef.h>
 #include "fips202x2.h"
