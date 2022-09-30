@@ -6,7 +6,7 @@ This repository contains the implementations described in Chapters 8 and 9.
 
 
 # Selected works
-This thesis collects two published works and one submitted work during the study of the master's program.
+This thesis collects ~~two published works and one submitted work~~ three published works during the study of the master's program.
 - **Multi-moduli NTTs for Saber on Cortex-M3 and Cortex-M4**
     - Available as [TCHES 2022, Issue 1, Pages 127-151](https://tches.iacr.org/index.php/TCHES/article/view/9292).
     - Full version available as [IACR ePrint, 2021/995](https://eprint.iacr.org/2021/995).
