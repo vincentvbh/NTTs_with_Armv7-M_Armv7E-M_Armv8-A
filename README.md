@@ -8,13 +8,14 @@ This repository contains the implementations described in Chapters 8 and 9.
 # Selected works
 This thesis collects two published works and one submitted work during the study of the master's program.
 - **Multi-moduli NTTs for Saber on Cortex-M3 and Cortex-M4**
-    - Available at https://tches.iacr.org/index.php/TCHES/article/view/9292.
-    - Full version available at https://eprint.iacr.org/2021/995.
+    - Available as [TCHES 2022, Issue 1, Pages 127-151](https://tches.iacr.org/index.php/TCHES/article/view/9292).
+    - Full version available as (https://eprint.iacr.org/2021/995).
 - **Neon NTT: Faster Dilithium, Kyber, and Saber on Cortex-A72 and Apple M1**.
-    - Available at https://tches.iacr.org/index.php/TCHES/article/view/9295.
-    - Full version available at https://eprint.iacr.org/2021/986.
+    - Available as ([TCHES 2022, Issue 1, Pages 221-244]https://tches.iacr.org/index.php/TCHES/article/view/9295).
+    - Full version available as (https://eprint.iacr.org/2021/986).
 - **Multi-Parameter Support with NTTs for NTRU and NTRU Prime on Cortex-M4**
-    - To appear at TCHES 2022.
+    - Available as [TCHES 2022, Issue 4, Pages 349-371](https://tches.iacr.org/index.php/TCHES/article/view/9823).
+    - Full version available as [IACR ePrint, 2022/930](https://eprint.iacr.org/2022/930).
 
 
 # Errata
@@ -22,6 +23,7 @@ This thesis collects two published works and one submitted work during the study
 - Table 2.3: the q of ntruhrss1373 is 16384.
 - Page 89: "min(v_2(q_0), v_3(q_1))" instead of "gcd(v_2(q_0), v_3(q_1))".
 - Algorithm 11 is wrong. Please ignore it.
+
 
 # Structure of this repository
 This repository is structured as follows.
@@ -59,7 +61,6 @@ The folder `gen_table` contains programs generating the twiddle factors for the 
 - Folders in `gen_table/Armv7-M` correspond to the implementations in `code/Armv7-M`.
 - Folders in `gen_table/Armv7E-M` correspond to the implementations in `code/Armv7E-M`.
 - Folders in `gen_table/Armv8-A` correspond to the implementations in `code/Armv8-A`.
-
 
 
 # Future works
