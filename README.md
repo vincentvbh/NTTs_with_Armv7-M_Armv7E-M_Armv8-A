@@ -1,6 +1,6 @@
 
 # NTTs_with_Armv7-M_Armv7E-M_Armv8-A
-This repository accompanies my master's thesis **Case Studies on Implementing Number--Theoretic Transforms with Armv7-M, Armv7E-M, and Armv8-A**.
+This repository accompanies my master's thesis [**Case Studies on Implementing Number--Theoretic Transforms with Armv7-M, Armv7E-M, and Armv8-A**](https://github.com/vincentvbh/NTTs_with_Armv7-M_Armv7E-M_Armv8-A/blob/main/thesis_protected.pdf).
 You can find a copy of the thesis in this repository.
 This repository contains the implementations described in Chapters 8 and 9.
 
