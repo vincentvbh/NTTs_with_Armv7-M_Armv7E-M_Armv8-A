@@ -4,6 +4,8 @@ This repository accompanies my master's thesis [**Case Studies on Implementing N
 You can find a copy of the thesis in this repository.
 This repository contains the implementations described in Chapters 8 and 9.
 
+You can find more about me [here](https://vincentvbh.github.io/).
+
 
 # Selected works
 This thesis collects ~~two published works and one submitted work during the study of the master's program~~ three published works.

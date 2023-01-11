@@ -6,5 +6,10 @@
 **/*.elf
 **/*.bin
 
+**/obj
+
+**/speed
+**/test
+
 
 
