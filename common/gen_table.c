@@ -86,9 +86,9 @@ void gen_inv_CT_table_generic(
     char twiddle[size];
 
     for(size_t level = 0; level < LOGNTT_N; level++){
-        expmod(zeta, omega, (1 << LOGNTT_N) >> (level + 1), mod);
+        expmod(zeta, omega, (1u << LOGNTT_N) >> (level + 1), mod);
         memcpy(twiddle, scale, size);
-        for(size_t i = 0; i < (1 << level); i++){
+        for(size_t i = 0; i < (1u << level); i++){
             memcpy(des, twiddle, size);
             des += size;
             mulmod(twiddle, twiddle, zeta, mod);
@@ -131,13 +131,13 @@ void gen_streamlined_CT_table_generic(
 
     start_level = 0;
     for(size_t i = 0; i < _profile->compressed_layers; i++){
-        for(size_t j = 0; j < (1 << start_level); j++){
+        for(size_t j = 0; j < (1u << start_level); j++){
             if(pad){
                 memset(des, 0, size);
                 des += size;
             }
             for(size_t k = 0; k < (_profile->merged_layers[i]); k++){
-                for(size_t h = 0; h < (1 << k); h++){
+                for(size_t h = 0; h < (1u << k); h++){
                     memcpy(des,
                         level_ptr[start_level + k] + (j * (1 << k) + h) * size,
                         size);
@@ -184,13 +184,13 @@ void gen_streamlined_CT_negacyclic_table_generic(
 
     start_level = 0;
     for(size_t i = 0; i < _profile->compressed_layers; i++){
-        for(size_t j = 0; j < (1 << start_level); j++){
+        for(size_t j = 0; j < (1u << start_level); j++){
             if(pad){
                 memset(des, 0, size);
                 des += size;
             }
             for(size_t k = 0; k < (_profile->merged_layers[i]); k++){
-                for(size_t h = 0; h < (1 << k); h++){
+                for(size_t h = 0; h < (1u << k); h++){
                     memcpy(des,
                         level_ptr[start_level + k] + (j * (1 << k) + h) * size,
                         size);
@@ -239,13 +239,13 @@ void gen_streamlined_inv_CT_table_generic(
 
     start_level = 0;
     for(size_t i = 0; i < _profile->compressed_layers; i++){
-        for(size_t j = 0; j < (1 << start_level); j++){
+        for(size_t j = 0; j < (1u << start_level); j++){
             if(pad){
                 memset(des, 0, size);
                 des += size;
             }
             for(size_t k = 0; k < (_profile->merged_layers[i]); k++){
-                for(size_t h = 0; h < (1 << k); h++){
+                for(size_t h = 0; h < (1u << k); h++){
                     memcpy(
                         des,
                         level_ptr[start_level + k] + (j + (h << start_level)) * size,
@@ -333,13 +333,13 @@ void gen_streamlined_inv_CT_negacyclic_table_generic(
 
     start_level = 0;
     for(size_t i = 0; i < _profile->compressed_layers; i++){
-        for(size_t j = 0; j < (1 << start_level); j++){
+        for(size_t j = 0; j < (1u << start_level); j++){
             if(pad){
                 memset(des, 0, size);
                 des += size;
             }
             for(size_t k = 0; k < (_profile->merged_layers[i]); k++){
-                for(size_t h = 0; h < (1 << k); h++){
+                for(size_t h = 0; h < (1u << k); h++){
                     memcpy(
                         des,
                         level_ptr[start_level + k] + (j + (h << start_level)) * size,
@@ -348,7 +348,7 @@ void gen_streamlined_inv_CT_negacyclic_table_generic(
                 }
             }
             if((i + 1) == _profile->compressed_layers){
-                for(size_t k = 0; k < (1 << (_profile->merged_layers[i])); k++){
+                for(size_t k = 0; k < (1u << (_profile->merged_layers[i])); k++){
                     memcpy(
                         des,
                         twist_ptr + (j + k * (NTT_N >> (_profile->merged_layers[i]))) * size,
